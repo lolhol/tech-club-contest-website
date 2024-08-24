@@ -1,0 +1,40 @@
+"filename", "language", "JavaScript", "TypeScript", "CSS", "TypeScript JSX", "Database", "JSON with Comments", "Properties", "JSON", "Markdown", "comment", "blank", "total"
+"/Users/godbrigero/Documents/tech-club-contest-website/.env", "Properties", 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1, 5
+"/Users/godbrigero/Documents/tech-club-contest-website/README.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 14, 37
+"/Users/godbrigero/Documents/tech-club-contest-website/database.db", "Database", 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 7
+"/Users/godbrigero/Documents/tech-club-contest-website/next.config.mjs", "JavaScript", 2, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 5
+"/Users/godbrigero/Documents/tech-club-contest-website/package-lock.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 3508, 0, 0, 1, 3509
+"/Users/godbrigero/Documents/tech-club-contest-website/package.json", "JSON", 0, 0, 0, 0, 0, 0, 0, 35, 0, 0, 1, 36
+"/Users/godbrigero/Documents/tech-club-contest-website/postcss.config.mjs", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 9
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/api/auth/[...nextauth]/route.ts", "TypeScript", 0, 75, 0, 0, 0, 0, 0, 0, 0, 7, 17, 99
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/api/database/user/create/action.ts", "TypeScript", 0, 23, 0, 0, 0, 0, 0, 0, 0, 11, 7, 41
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/api/database/user/delete/action.ts", "TypeScript", 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 5, 20
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/api/database/user/exists/action.ts", "TypeScript", 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 6, 37
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/api/database/user/get_game_dat/action.ts", "TypeScript", 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 4, 20
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/api/database/user/update-server/action.ts", "TypeScript", 0, 23, 0, 0, 0, 0, 0, 0, 0, 7, 6, 36
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/api/image/get-pair/action.ts", "TypeScript", 0, 43, 0, 0, 0, 0, 0, 0, 0, 1, 11, 55
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/DeleteAccount.tsx", "TypeScript JSX", 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 2, 22
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/Leaderboard.tsx", "TypeScript JSX", 0, 0, 0, 194, 0, 0, 0, 0, 0, 4, 23, 221
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/Sidebar.tsx", "TypeScript JSX", 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 4, 32
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/SignIn.tsx", "TypeScript JSX", 0, 0, 0, 188, 0, 0, 0, 0, 0, 0, 19, 207
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/game-over/GameOver.tsx", "TypeScript JSX", 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 2, 16
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/game/Game.tsx", "TypeScript JSX", 0, 0, 0, 130, 0, 0, 0, 0, 0, 0, 18, 148
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/hearts/HeartAnimation.module.css", "CSS", 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 2, 15
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/hearts/HeartAnimation.tsx", "TypeScript JSX", 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 3, 38
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/main/HomePage.module.css", "CSS", 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/main/HomePage.tsx", "TypeScript JSX", 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 9, 63
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/winstreak/WinstreakAnimation.module.css", "CSS", 0, 0, 49, 0, 0, 0, 0, 0, 0, 0, 7, 56
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/components/winstreak/WinstreakAnimation.tsx", "TypeScript JSX", 0, 0, 0, 59, 0, 0, 0, 0, 0, 1, 3, 63
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/game/page.tsx", "TypeScript JSX", 0, 0, 0, 170, 0, 0, 0, 0, 0, 0, 11, 181
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/gameover/page.tsx", "TypeScript JSX", 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 6, 41
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/globals.css", "CSS", 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 4
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/layout.tsx", "TypeScript JSX", 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 4, 44
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/leaderboard/page.tsx", "TypeScript JSX", 0, 0, 0, 34, 0, 0, 0, 0, 0, 0, 4, 38
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/page.tsx", "TypeScript JSX", 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 3, 43
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/settings/page.tsx", "TypeScript JSX", 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 7, 44
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/signin/page.tsx", "TypeScript JSX", 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 5, 86
+"/Users/godbrigero/Documents/tech-club-contest-website/src/app/types/next-auth.d.ts", "TypeScript", 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 3, 17
+"/Users/godbrigero/Documents/tech-club-contest-website/src/internal/core.ts", "TypeScript", 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 3, 8
+"/Users/godbrigero/Documents/tech-club-contest-website/tailwind.config.ts", "TypeScript", 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 2, 21
+"/Users/godbrigero/Documents/tech-club-contest-website/tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 1, 27
+"Total", "-", 8, 264, 77, 1159, 7, 26, 4, 3543, 23, 33, 221, 5365

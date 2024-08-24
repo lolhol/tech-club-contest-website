@@ -1,0 +1,100 @@
+Date : 2024-08-24 15:08:43
+Directory : /Users/godbrigero/Documents/tech-club-contest-website
+Total : 38 files,  5111 codes, 33 comments, 221 blanks, all 5365 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          2 |      3,543 |          0 |          2 |      3,545 |
+| TypeScript JSX     |         16 |      1,159 |          5 |        123 |      1,287 |
+| TypeScript         |         10 |        264 |         26 |         64 |        354 |
+| CSS                |          4 |         77 |          0 |         12 |         89 |
+| JSON with Comments |          1 |         26 |          0 |          1 |         27 |
+| Markdown           |          1 |         23 |          0 |         14 |         37 |
+| JavaScript         |          2 |          8 |          2 |          4 |         14 |
+| Database           |          1 |          7 |          0 |          0 |          7 |
+| Properties         |          1 |          4 |          0 |          1 |          5 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                             | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                |         38 |      5,111 |         33 |        221 |      5,365 |
+| . (Files)                                                                                                        |          9 |      3,630 |          2 |         24 |      3,656 |
+| src                                                                                                              |         29 |      1,481 |         31 |        197 |      1,709 |
+| src/app                                                                                                          |         28 |      1,476 |         31 |        194 |      1,701 |
+| src/app (Files)                                                                                                  |          3 |         83 |          0 |          8 |         91 |
+| src/app/api                                                                                                      |          7 |        226 |         26 |         56 |        308 |
+| src/app/api/auth                                                                                                 |          1 |         75 |          7 |         17 |         99 |
+| src/app/api/auth/[...nextauth]                                                                                   |          1 |         75 |          7 |         17 |         99 |
+| src/app/api/database                                                                                             |          5 |        108 |         18 |         28 |        154 |
+| src/app/api/database/user                                                                                        |          5 |        108 |         18 |         28 |        154 |
+| src/app/api/database/user/create                                                                                 |          1 |         23 |         11 |          7 |         41 |
+| src/app/api/database/user/delete                                                                                 |          1 |         15 |          0 |          5 |         20 |
+| src/app/api/database/user/exists                                                                                 |          1 |         31 |          0 |          6 |         37 |
+| src/app/api/database/user/get_game_dat                                                                           |          1 |         16 |          0 |          4 |         20 |
+| src/app/api/database/user/update-server                                                                          |          1 |         23 |          7 |          6 |         36 |
+| src/app/api/image                                                                                                |          1 |         43 |          1 |         11 |         55 |
+| src/app/api/image/get-pair                                                                                       |          1 |         43 |          1 |         11 |         55 |
+| src/app/components                                                                                               |         12 |        796 |          5 |         94 |        895 |
+| src/app/components (Files)                                                                                       |          4 |        430 |          4 |         48 |        482 |
+| src/app/components/game                                                                                          |          1 |        130 |          0 |         18 |        148 |
+| src/app/components/game-over                                                                                     |          1 |         14 |          0 |          2 |         16 |
+| src/app/components/hearts                                                                                        |          2 |         48 |          0 |          5 |         53 |
+| src/app/components/main                                                                                          |          2 |         66 |          0 |         11 |         77 |
+| src/app/components/winstreak                                                                                     |          2 |        108 |          1 |         10 |        119 |
+| src/app/game                                                                                                     |          1 |        170 |          0 |         11 |        181 |
+| src/app/gameover                                                                                                 |          1 |         35 |          0 |          6 |         41 |
+| src/app/leaderboard                                                                                              |          1 |         34 |          0 |          4 |         38 |
+| src/app/settings                                                                                                 |          1 |         37 |          0 |          7 |         44 |
+| src/app/signin                                                                                                   |          1 |         81 |          0 |          5 |         86 |
+| src/app/types                                                                                                    |          1 |         14 |          0 |          3 |         17 |
+| src/internal                                                                                                     |          1 |          5 |          0 |          3 |          8 |
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                         | language           | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /Users/godbrigero/Documents/tech-club-contest-website/.env                                                       | Properties         |          4 |          0 |          1 |          5 |
+| /Users/godbrigero/Documents/tech-club-contest-website/README.md                                                  | Markdown           |         23 |          0 |         14 |         37 |
+| /Users/godbrigero/Documents/tech-club-contest-website/database.db                                                | Database           |          7 |          0 |          0 |          7 |
+| /Users/godbrigero/Documents/tech-club-contest-website/next.config.mjs                                            | JavaScript         |          2 |          1 |          2 |          5 |
+| /Users/godbrigero/Documents/tech-club-contest-website/package-lock.json                                          | JSON               |      3,508 |          0 |          1 |      3,509 |
+| /Users/godbrigero/Documents/tech-club-contest-website/package.json                                               | JSON               |         35 |          0 |          1 |         36 |
+| /Users/godbrigero/Documents/tech-club-contest-website/postcss.config.mjs                                         | JavaScript         |          6 |          1 |          2 |          9 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/api/auth/[...nextauth]/route.ts                    | TypeScript         |         75 |          7 |         17 |         99 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/api/database/user/create/action.ts                 | TypeScript         |         23 |         11 |          7 |         41 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/api/database/user/delete/action.ts                 | TypeScript         |         15 |          0 |          5 |         20 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/api/database/user/exists/action.ts                 | TypeScript         |         31 |          0 |          6 |         37 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/api/database/user/get_game_dat/action.ts           | TypeScript         |         16 |          0 |          4 |         20 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/api/database/user/update-server/action.ts          | TypeScript         |         23 |          7 |          6 |         36 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/api/image/get-pair/action.ts                       | TypeScript         |         43 |          1 |         11 |         55 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/DeleteAccount.tsx                       | TypeScript JSX     |         20 |          0 |          2 |         22 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/Leaderboard.tsx                         | TypeScript JSX     |        194 |          4 |         23 |        221 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/Sidebar.tsx                             | TypeScript JSX     |         28 |          0 |          4 |         32 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/SignIn.tsx                              | TypeScript JSX     |        188 |          0 |         19 |        207 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/game-over/GameOver.tsx                  | TypeScript JSX     |         14 |          0 |          2 |         16 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/game/Game.tsx                           | TypeScript JSX     |        130 |          0 |         18 |        148 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/hearts/HeartAnimation.module.css        | CSS                |         13 |          0 |          2 |         15 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/hearts/HeartAnimation.tsx               | TypeScript JSX     |         35 |          0 |          3 |         38 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/main/HomePage.module.css                | CSS                |         12 |          0 |          2 |         14 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/main/HomePage.tsx                       | TypeScript JSX     |         54 |          0 |          9 |         63 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/winstreak/WinstreakAnimation.module.css | CSS                |         49 |          0 |          7 |         56 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/components/winstreak/WinstreakAnimation.tsx        | TypeScript JSX     |         59 |          1 |          3 |         63 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/game/page.tsx                                      | TypeScript JSX     |        170 |          0 |         11 |        181 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/gameover/page.tsx                                  | TypeScript JSX     |         35 |          0 |          6 |         41 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/globals.css                                        | CSS                |          3 |          0 |          1 |          4 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/layout.tsx                                         | TypeScript JSX     |         40 |          0 |          4 |         44 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/leaderboard/page.tsx                               | TypeScript JSX     |         34 |          0 |          4 |         38 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/page.tsx                                           | TypeScript JSX     |         40 |          0 |          3 |         43 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/settings/page.tsx                                  | TypeScript JSX     |         37 |          0 |          7 |         44 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/signin/page.tsx                                    | TypeScript JSX     |         81 |          0 |          5 |         86 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/app/types/next-auth.d.ts                               | TypeScript         |         14 |          0 |          3 |         17 |
+| /Users/godbrigero/Documents/tech-club-contest-website/src/internal/core.ts                                       | TypeScript         |          5 |          0 |          3 |          8 |
+| /Users/godbrigero/Documents/tech-club-contest-website/tailwind.config.ts                                         | TypeScript         |         19 |          0 |          2 |         21 |
+| /Users/godbrigero/Documents/tech-club-contest-website/tsconfig.json                                              | JSON with Comments |         26 |          0 |          1 |         27 |
+| Total                                                                                                            |                    |      5,111 |         33 |        221 |      5,365 |
++------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
