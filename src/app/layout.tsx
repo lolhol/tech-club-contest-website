@@ -24,11 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " bg-gray-900 text-white"}>
-        <SessionProvider>
-          <ResponsiveSidebar />
-          {children}
-        </SessionProvider>
+        <ResponsiveSidebar />
+        {children}
       </body>
     </html>
   );
 }
+
+//<SessionProvider>
