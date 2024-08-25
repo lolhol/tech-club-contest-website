@@ -26,7 +26,7 @@ import { updateServerWithClientData } from "../api/database/user/update-server/a
 import { getGameDat } from "../api/database/user/get_game_dat/action";
 
 export default function Game() {
-  const { data: session, status } = useSession(undefined);
+  //const { data: session, status } = useSession(undefined);
   const [imageData, setImageData] = useState<Pair | undefined>(undefined);
   const [scored, setScored] = useState(false);
   const [zIndexImageNum, setZIndexImageNum] = useState(0);
@@ -47,7 +47,7 @@ export default function Game() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (status === "loading") {
       return;
     }
@@ -56,25 +56,25 @@ export default function Game() {
       router.push("/signin");
     }*/
 
-    /*getGameDat(session?.user.id ?? -1).then((data) => {
+  /*getGameDat(session?.user.id ?? -1).then((data) => {
       if (data.lives_left <= 0) {
         router.push("/gameover");
       }
 
       setCurrentWS(data.score);
       setCurrentHearts(data.lives_left);
-    });*/
+    });
 
     //    if (session?.user) {
 
     //    }
-  }, [session, status, router]);
+  }, [session, status, router]);*/
 
   useEffect(() => {
     console.log(JSON.stringify(imageData) + " <- imageData");
     if (/*session?.user && */ imageData === undefined) {
       getPair(undefined).then((data) => {
-        //console.log(JSON.stringify(data) + " <- getPair");
+        console.log(JSON.stringify(data) + " <- getPair");
         setImageData(data ?? undefined);
       });
     }
