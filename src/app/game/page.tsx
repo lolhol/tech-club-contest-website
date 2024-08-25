@@ -27,7 +27,7 @@ import { getGameDat } from "../api/database/user/get_game_dat/action";
 
 export default function Game() {
   const { data: session, status } = useSession(undefined);
-  const [imageData, setImageData] = useState<Pair>();
+  const [imageData, setImageData] = useState<Pair | undefined>(undefined);
   const [scored, setScored] = useState(false);
   const [zIndexImageNum, setZIndexImageNum] = useState(0);
   const [scoredImageNumber, setScoredImageNumber] = useState(0);
@@ -52,43 +52,50 @@ export default function Game() {
       return;
     }
 
-    if (!session?.user) {
+    /*if (!session?.user) {
       router.push("/signin");
-    }
+    }*/
 
-    if (session?.user) {
-      getGameDat(session.user.id).then((data) => {
-        if (data.lives_left <= 0) {
-          router.push("/gameover");
-        }
+    /*getGameDat(session?.user.id ?? -1).then((data) => {
+      if (data.lives_left <= 0) {
+        router.push("/gameover");
+      }
 
-        setCurrentWS(data.score);
-        setCurrentHearts(data.lives_left);
-      });
-    }
+      setCurrentWS(data.score);
+      setCurrentHearts(data.lives_left);
+    });*/
+
+    //    if (session?.user) {
+
+    //    }
   }, [session, status, router]);
 
   useEffect(() => {
-    if (session?.user && imageData == undefined) {
-      getPair(session.user.id).then((data) => {
+    console.log(JSON.stringify(imageData) + " <- imageData");
+    if (/*session?.user && */ imageData === undefined) {
+      getPair(session?.user.id ?? -1).then((data) => {
+        console.log(JSON.stringify(data) + " <- getPair");
         setImageData(data ?? undefined);
       });
     }
-  }, [session, imageData]);
+  }, [
+    /*session, */
+    imageData,
+  ]);
 
   useEffect(() => {
-    if (scored && session?.user) {
+    if (scored /*session?.user*/) {
       if (imageData?.correct == scoredImageNumber) {
-        updateServerWithClientData(
+        /*updateServerWithClientData(
           session.user.id,
           currentWS + 1,
           currentHearts
-        );
-        updateServerWithClientData(session.user.id, 0, 3);
+        );*/
+        //updateServerWithClientData(session.user.id, 0, 3);
         setCurrentWS(currentWS + 1);
       } else {
         setCurrentWS(0);
-        updateServerWithClientData(session.user.id, 0, 3);
+        //updateServerWithClientData(session.user.id, 0, 3);
         if (currentHearts - 1 <= 0) {
           router.push("/gameover");
           return;

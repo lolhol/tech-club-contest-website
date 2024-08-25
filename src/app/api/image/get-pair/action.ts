@@ -27,35 +27,39 @@ const possibleDifficulty: Record<number, number[]> = {
 };
 
 export async function getPair(userId: number): Promise<Pair | null> {
-  const db = getDatabase();
-  const user_data: User = db
-    .prepare("SELECT * FROM account WHERE id = ?;")
-    .get(userId) as unknown as User;
+  if (userId !== -1) {
+    const db = getDatabase();
+    const user_data: User = db
+      .prepare("SELECT * FROM account WHERE id = ?;")
+      .get(userId) as unknown as User;
 
-  if (!user_data) return null;
+    if (!user_data) return null;
 
-  console.log(user_data);
+    console.log(user_data);
+  }
 
   const folderName = possible[randomInt(possible.length)];
-  const difficulty = possibleDifficulty[user_data.difficulty];
+  const difficulty = possibleDifficulty["0"]; //user_data.difficulty];
 
-  const randomImgOneNumber = randomInt(difficulty.length);
+  const randomImgOneNumber = 0;
   let randomImgTwoNumber = randomInt(difficulty.length);
   while (randomImgOneNumber === randomImgTwoNumber) {
     randomImgTwoNumber = randomInt(difficulty.length);
   }
 
   // Randomly decide whether the correct image will be image1 or image2
-  const correctIndex = randomInt(2) + 1; // Generates 1 or 2
+  const correctIndex = randomInt(0, 2); // Generates 1 or 2
 
   return {
-    image1: `/media/${folderName}/${
-      difficulty[correctIndex === 1 ? randomImgOneNumber : randomImgTwoNumber]
-    }.png`,
-    image2: `/media/${folderName}/${
-      difficulty[correctIndex === 2 ? randomImgOneNumber : randomImgTwoNumber]
-    }.png`,
-    hardness: user_data.difficulty,
-    correct: correctIndex, // 1 if image1 is correct, 2 if image2 is correct
+    image1:
+      correctIndex == 1
+        ? `/media/${folderName}/${difficulty[0]}.png`
+        : `/media/${folderName}/${difficulty[randomImgTwoNumber]}.png`,
+    image2:
+      correctIndex == 0
+        ? `/media/${folderName}/${difficulty[0]}.png`
+        : `/media/${folderName}/${difficulty[randomImgTwoNumber]}.png`,
+    hardness: 1,
+    correct: correctIndex == 1 ? 1 : 2, // 1 if image1 is correct, 2 if image2 is correct
   };
 }
