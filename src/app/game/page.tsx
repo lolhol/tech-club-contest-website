@@ -35,6 +35,18 @@ export default function Game() {
   const router = useRouter();
   const [currentHearts, setCurrentHearts] = useState(3);
 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 900);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useEffect(() => {
     if (status === "loading") {
       return;
@@ -72,10 +84,11 @@ export default function Game() {
           currentWS + 1,
           currentHearts
         );
+        updateServerWithClientData(session.user.id, 0, 3);
         setCurrentWS(currentWS + 1);
       } else {
         setCurrentWS(0);
-        updateServerWithClientData(session.user.id, 0, currentHearts - 1);
+        updateServerWithClientData(session.user.id, 0, 3);
         if (currentHearts - 1 <= 0) {
           router.push("/gameover");
           return;
@@ -92,11 +105,13 @@ export default function Game() {
           <GameHeader>Select The Better Looking Image</GameHeader>
         </GameHead>
         <GameImageList>
-          <GameImageAbsoluteList single={!scored}>
+          <GameImageAbsoluteList single={scored}>
             <GameImage
               single={scored}
               right={false}
               zIndex={zIndexImageNum == 1 ? 10 : 0}
+              vertical={isSmallScreen}
+              up={false}
             >
               {(imageData != undefined && (
                 <>
@@ -127,6 +142,8 @@ export default function Game() {
               single={scored}
               right={true}
               zIndex={zIndexImageNum == 2 ? 10 : 0}
+              vertical={isSmallScreen}
+              up={true}
             >
               {(imageData != undefined && (
                 <>
@@ -170,7 +187,7 @@ export default function Game() {
           </GameButtonList>
         )}
 
-        <div className="absolute top-3 right-28 flex items-center justify-center gap-24">
+        <div className="absolute bottom-2 flex items-center h-fit">
           <WinstreakAnimation winstreak={currentWS}></WinstreakAnimation>
           <HeartAnimation score={currentHearts}></HeartAnimation>
         </div>

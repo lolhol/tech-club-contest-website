@@ -4,7 +4,7 @@ import styles from "./HeartAnimation.module.css";
 export function HeartAnimation(props: { score: number }) {
   return (
     <div
-      className={`${styles.container} w-20 flex items-center justify-center`}
+      className={`${styles.container} w-60 flex items-center justify-center overflow-hidden`}
     >
       {Array.from({ length: props.score }, (_, index) => {
         const visibility = index < props.score;

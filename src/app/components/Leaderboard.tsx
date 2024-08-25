@@ -111,7 +111,7 @@ export function LeaderboardRefresh(props: { onRefresh?: () => void }) {
 
 export function LeaderboardTitle(props: LeaderboardProps) {
   return (
-    <div className="w-full h-fit text-center text-5xl font-semibold">
+    <div className="w-full h-fit text-center sm:text-5xl text-3xl font-semibold">
       {props.children}
     </div>
   );
@@ -119,7 +119,9 @@ export function LeaderboardTitle(props: LeaderboardProps) {
 
 export function LeaderboardWithProps(props: LeaderboardProps) {
   return (
-    <div className="w-full h-full flex items-center">{props.children}</div>
+    <div className="w-full h-full flex items-center justify-center">
+      {props.children}
+    </div>
   );
 }
 
@@ -148,7 +150,7 @@ export function LeaderboardMain(props: LeaderboardProps) {
     <motion.div
       ref={leaderboardRef}
       onScroll={handleScroll}
-      className="w-full h-full mx-96 bg-slate-800 flex flex-col p-4 px-12 rounded-md gap-10 relative overflow-y-auto"
+      className="sm:mx-20 w-full h-full bg-slate-800 flex flex-col p-4 sm:px-12 rounded-md gap-10 relative overflow-y-auto"
       animate={shake ? { x: [0, -10, 10, -10, 10, 0] } : {}}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >

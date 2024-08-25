@@ -26,7 +26,7 @@ export default function Settings() {
   }, [session, status, router]);
 
   return (
-    <main className="ml-20 p-10">
+    <main className="pt-10 flex items-center justify-center">
       <DeleteAccountBox>
         <a className="text-center">Delete Account</a>
         <DeleteAccountButton

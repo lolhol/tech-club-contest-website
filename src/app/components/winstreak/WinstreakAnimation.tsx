@@ -11,7 +11,12 @@ export function WinstreakAnimation(props: { winstreak: number }) {
   return (
     <div
       className={`${styles.container} flex items-center justify-center`}
-      style={{ filter: `brightness(${brightness + 0.5})` }} // Brightness adjustment
+      style={{
+        width: "150px", // Fixed width
+        height: "150px", // Fixed height
+        overflow: "hidden", // Hide overflow
+        filter: `brightness(${brightness + 0.5})`, // Brightness adjustment
+      }}
     >
       <svg className={styles.fireSvg} viewBox="0 0 64 64">
         <defs>

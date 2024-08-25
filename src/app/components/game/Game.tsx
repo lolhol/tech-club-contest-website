@@ -5,7 +5,7 @@ import { MdCheckCircle } from "react-icons/md";
 
 export function GameLayout(props: { children: React.ReactNode }) {
   return (
-    <div className="w-full h-full pt-6 flex flex-col items-center gap-16">
+    <div className="w-full h-full lg:pt-4 pt-24 flex flex-col items-center gap-6 sm:gap-8">
       {props.children}
     </div>
   );
@@ -13,14 +13,14 @@ export function GameLayout(props: { children: React.ReactNode }) {
 
 export function GameHead(props: { children: React.ReactNode }) {
   return (
-    <div className="w-full h-fit flex flex-col items-center">
+    <div className="lg:w-full w-3/4 h-fit flex flex-col items-center text-center">
       {props.children}
     </div>
   );
 }
 
 export function GameHeader(props: { children: React.ReactNode }) {
-  return <div className="text-4xl font-bold">{props.children}</div>;
+  return <div className="text-3xl font-bold sm:text-5xl">{props.children}</div>;
 }
 
 export function Gamebody(props: { children: React.ReactNode }) {
@@ -29,8 +29,8 @@ export function Gamebody(props: { children: React.ReactNode }) {
 
 export function GameImageList(props: { children: React.ReactNode }) {
   return (
-    <div className="w-[600px] h-[200px] transition-all duration-300 relative">
-      <div className="absolute w-fit h-fit flex left-1/2 -translate-x-1/2">
+    <div className="w-[300px] h-fit sm:w-[300px] sm:h-[200px] transition-all duration-300 relative flex flex-col items-center">
+      <div className="w-fit h-fit flex left-1/2 sm:static sm:translate-x-0">
         {props.children}
       </div>
     </div>
@@ -41,8 +41,24 @@ export function GameImageAbsoluteList(props: {
   children: React.ReactNode;
   single: boolean;
 }) {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 900);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className={"w-full h-full flex " + (props.single ? "gap-10" : "")}>
+    <div
+      className={`w-full h-full flex${!props.single ? " gap-4 sm:gap-6" : ""} ${
+        isSmallScreen ? "flex-col" : ""
+      }`}
+    >
       {props.children}
     </div>
   );
@@ -53,17 +69,23 @@ export function GameImage(props: {
   single?: boolean;
   right?: boolean;
   zIndex?: number;
+  vertical?: boolean;
+  up?: boolean;
+  stay?: boolean;
 }) {
   return (
     <div
-      className={
-        "w-[300px] h-[200px] transition-all duration-300 " +
-        (props.single
-          ? props.right
-            ? "-translate-x-1/2"
-            : "translate-x-1/2"
-          : "")
-      }
+      className={`w-[300px] h-fit lg:w-[300px] lg:h-[200px] transition-transform duration-300 ${
+        props.single
+          ? props.vertical
+            ? props.up
+              ? "translate-y-[-50%]"
+              : "translate-y-[50%]"
+            : props.right
+            ? "-translate-x-[50%]"
+            : "translate-x-[50%]"
+          : ""
+      }`}
       style={{ zIndex: props.zIndex ?? 0 }}
     >
       {props.children}
@@ -83,7 +105,9 @@ export function BluredImage(props: { children: React.ReactNode }) {
 }
 
 export function GameButtonList(props: { children: React.ReactNode }) {
-  return <div className="w-fit h-fit flex gap-10">{props.children}</div>;
+  return (
+    <div className="w-fit h-fit flex gap-2 sm:gap-4">{props.children}</div>
+  );
 }
 
 export function GameButton(props: {
@@ -94,7 +118,7 @@ export function GameButton(props: {
   return (
     <button
       className={
-        "w-60 h-fit p-4 text-2xl font-semibold bg-slate-800 rounded-md hover:bg-slate-700 transition-all duration-300 " +
+        "w-36 h-fit p-2 text-lg font-semibold bg-slate-800 rounded-md hover:bg-slate-700 transition-all duration-300 " +
         (props.locked ? "opacity-60" : "")
       }
       onClick={props.onClick}
@@ -113,8 +137,8 @@ export function GameGreenCheckmark() {
 
   return (
     <div
-      className={`w-16 h-16 absolute bottom-0 right-0 transition-all duration-500 delay-300 ease-out z-30 ${
-        isAnimating ? "scale-125 opacity-100" : "scale-50 opacity-0"
+      className={`w-10 h-10 absolute bottom-0 right-0 sm:bottom-0 sm:right-0 transition-all duration-500 delay-300 ease-out z-30 ${
+        isAnimating ? "scale-150 opacity-100" : "scale-50 opacity-0"
       }`}
       onAnimationEnd={() => setIsAnimating(false)}
     >
@@ -132,8 +156,8 @@ export function GameRedCross() {
 
   return (
     <div
-      className={`w-16 h-16 absolute bottom-0 right-0 transition-all duration-500 delay-300 ease-out z-30 ${
-        isAnimating ? "scale-125 opacity-100" : "scale-50 opacity-0"
+      className={`w-10 h-10 absolute bottom-0 right-0 transition-all duration-500 delay-300 ease-out z-30 ${
+        isAnimating ? "scale-150 opacity-100" : "scale-50 opacity-0"
       }`}
       onAnimationEnd={() => setIsAnimating(false)}
     >
@@ -143,5 +167,9 @@ export function GameRedCross() {
 }
 
 export function StatsHeaderText(props: { children: React.ReactNode }) {
-  return <div className="text-4xl font-bold text-white">{props.children}</div>;
+  return (
+    <div className="text-2xl font-bold text-white sm:text-3xl">
+      {props.children}
+    </div>
+  );
 }
