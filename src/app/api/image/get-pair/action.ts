@@ -29,6 +29,7 @@ const possibleDifficulty: Record<number, number[]> = {
 export async function getPair(
   userId: number | undefined
 ): Promise<Pair | null> {
+  console.log("GET PAIR: " + userId);
   if (userId) {
     const db = getDatabase();
     const user_data: User = db
@@ -37,7 +38,7 @@ export async function getPair(
 
     if (!user_data) return null;
 
-    console.log(user_data);
+    console.log(user_data + "!!!!");
   }
 
   const folderName = possible[randomInt(possible.length)];
@@ -51,6 +52,14 @@ export async function getPair(
 
   // Randomly decide whether the correct image will be image1 or image2
   const correctIndex = randomInt(0, 2); // Generates 1 or 2
+
+  console.log(
+    difficulty[randomImgOneNumber] +
+      " " +
+      difficulty[randomImgTwoNumber] +
+      " " +
+      correctIndex
+  );
 
   return {
     image1:
