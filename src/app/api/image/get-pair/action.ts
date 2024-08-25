@@ -30,7 +30,7 @@ export async function getPair(
   userId: number | undefined
 ): Promise<Pair | null> {
   console.log("GET PAIR: " + userId);
-  if (userId) {
+  /*if (userId) {
     const db = getDatabase();
     const user_data: User = db
       .prepare("SELECT * FROM account WHERE id = ?;")
@@ -39,7 +39,7 @@ export async function getPair(
     if (!user_data) return null;
 
     console.log(user_data + "!!!!");
-  }
+  }*/
 
   const folderName = possible[randomInt(possible.length)];
   const difficulty = possibleDifficulty["0"]; //user_data.difficulty];
