@@ -74,7 +74,7 @@ export default function Game() {
     console.log(JSON.stringify(imageData) + " <- imageData");
     if (/*session?.user && */ imageData === undefined) {
       getPair(session?.user.id ?? -1).then((data) => {
-        console.log(JSON.stringify(data) + " <- getPair");
+        //console.log(JSON.stringify(data) + " <- getPair");
         setImageData(data ?? undefined);
       });
     }
