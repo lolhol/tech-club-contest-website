@@ -73,7 +73,7 @@ export default function Game() {
   useEffect(() => {
     console.log(JSON.stringify(imageData) + " <- imageData");
     if (/*session?.user && */ imageData === undefined) {
-      getPair(session?.user.id ?? -1).then((data) => {
+      getPair(undefined).then((data) => {
         //console.log(JSON.stringify(data) + " <- getPair");
         setImageData(data ?? undefined);
       });

@@ -26,8 +26,10 @@ const possibleDifficulty: Record<number, number[]> = {
   2: [7, 8, 9],
 };
 
-export async function getPair(userId: number): Promise<Pair | null> {
-  if (userId !== -1) {
+export async function getPair(
+  userId: number | undefined
+): Promise<Pair | null> {
+  if (userId) {
     const db = getDatabase();
     const user_data: User = db
       .prepare("SELECT * FROM account WHERE id = ?;")
