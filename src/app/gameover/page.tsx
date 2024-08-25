@@ -13,11 +13,11 @@ import {
 } from "../components/game-over/GameOver";
 
 export default function GameOverPage() {
-  const { data: session, status } = useSession();
+  //const { data: session, status } = useSession();
   const [highScore, setHighScore] = useState(0);
   const router = useRouter();
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (status === "loading") {
       return;
     }
@@ -29,7 +29,7 @@ export default function GameOverPage() {
         setHighScore(data.best_score);
       });
     }
-  }, [session, status]);
+  }, [session, status]);*/
 
   return (
     <main className="pt-10 flex flex-col justify-center gap-2">
