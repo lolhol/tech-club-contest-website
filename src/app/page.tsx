@@ -4,6 +4,10 @@ import { HiOutlineArrowDown } from "react-icons/hi";
 import {
   HomePageBody,
   HomePageBox,
+  HomePageBoxBody,
+  HomePageBoxHeader,
+  HomePageBoxImage,
+  HomePageBoxTextGroup,
   HomePageHead,
   HomePageHeaderBodyArrow,
   HomePageHeaderBodyText,
@@ -28,7 +32,26 @@ export default function Home() {
           </HomePageHeadList>
         </HomePageHead>
         <HomePageBody>
-          <HomePageBox>Step 1: Create a new challenge</HomePageBox>
+          <HomePageBox>
+            <HomePageBoxTextGroup>
+              <HomePageBoxHeader>
+                A Pinewood Techclub™ Affiliated Challenge
+              </HomePageBoxHeader>
+              <HomePageBoxBody>
+                The Pinewood TechClub is seeking new designers as it takes a
+                modernizing turn this year, creating a dynamic environment for
+                creative minds. Through this game, the club can easily connect
+                with designers, fostering collaboration and innovation.
+              </HomePageBoxBody>
+            </HomePageBoxTextGroup>
+            <HomePageBoxImage>
+              <img
+                src="/graphic_designer.png"
+                alt="Designer Challenge"
+                className="w-full h-full object-cover"
+              />
+            </HomePageBoxImage>
+          </HomePageBox>
         </HomePageBody>
         <button
           className="text-5xl"

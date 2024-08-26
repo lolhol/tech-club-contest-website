@@ -63,8 +63,24 @@ export function HomePageHeaderBodyArrow() {
 
 export function HomePageBox(props: { children: React.ReactNode }) {
   return (
-    <div className="w-full h-40 py-3 px-3 bg-slate-800 rounded-lg flex items-center justify-between gap-3 sm:w-2/3 sm:h-56 sm:py-4 sm:px-4">
+    <div className="w-full h-40 py-3 px-3 bg-slate-800 rounded-lg flex justify-between gap-3 sm:w-2/3 sm:h-56 sm:py-4 sm:px-4">
       {props.children}
     </div>
   );
+}
+
+export function HomePageBoxImage(props: { children: React.ReactNode }) {
+  return <div className="w-1/2">{props.children}</div>;
+}
+
+export function HomePageBoxTextGroup(props: { children: React.ReactNode }) {
+  return <div className="flex flex-col gap-1 w-1/2">{props.children}</div>;
+}
+
+export function HomePageBoxHeader(props: { children: React.ReactNode }) {
+  return <div className="text-lg font-semibold">{props.children}</div>;
+}
+
+export function HomePageBoxBody(props: { children: React.ReactNode }) {
+  return <div className="text-sm font-thin">{props.children}</div>;
 }
