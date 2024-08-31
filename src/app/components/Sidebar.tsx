@@ -14,6 +14,10 @@ export function ResponsiveSidebar() {
   const [closed, setClosed] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
+  function onClickSidebarEntree() {
+    setClosed(true);
+  }
+
   useEffect(() => {
     setClosed(window.innerWidth < 900);
     window.addEventListener("resize", () => {
@@ -42,16 +46,32 @@ export function ResponsiveSidebar() {
     <>
       {closed && <SidebarOpenButton onClick={() => setClosed(false)} />}
       <SidebarMain closed={closed} reference={sidebarRef}>
-        <SidebarEntree link={"/"} className="w-10 h-10">
+        <SidebarEntree
+          link={"/"}
+          className="w-10 h-10"
+          onClick={onClickSidebarEntree}
+        >
           <FaHome className="w-full h-full" />
         </SidebarEntree>
-        <SidebarEntree link={"/game"} className="w-10 h-10">
+        <SidebarEntree
+          link={"/game"}
+          className="w-10 h-10"
+          onClick={onClickSidebarEntree}
+        >
           <MdSportsEsports className="w-full h-full" />
         </SidebarEntree>
-        <SidebarEntree link={"/leaderboard"} className="w-10 h-10">
+        <SidebarEntree
+          link={"/leaderboard"}
+          className="w-10 h-10"
+          onClick={onClickSidebarEntree}
+        >
           <FaTrophy className="w-full h-full" color="gold" />
         </SidebarEntree>
-        <SidebarEntree link={"/settings"} className="w-10 h-10">
+        <SidebarEntree
+          link={"/settings"}
+          className="w-10 h-10"
+          onClick={onClickSidebarEntree}
+        >
           <IoSettingsOutline className="w-full h-full" />
         </SidebarEntree>
       </SidebarMain>
@@ -92,6 +112,7 @@ export function SidebarEntree(props: {
   children: React.ReactNode;
   link: string;
   className?: string;
+  onClick?: () => void;
 }) {
   return (
     <Link
@@ -100,6 +121,7 @@ export function SidebarEntree(props: {
         "opacity-70 hover:opacity-100 transition-all duration-300 mx-auto " +
         props.className
       }
+      onClick={props.onClick}
     >
       {props.children}
     </Link>

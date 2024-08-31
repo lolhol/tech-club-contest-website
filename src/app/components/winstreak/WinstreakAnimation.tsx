@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import styles from "./WinstreakAnimation.module.css";
 
-export function WinstreakAnimation(props: { winstreak: number }) {
+export function WinstreakAnimation(props: {
+  winstreak: number;
+  data?: string;
+}) {
   // Calculate brightness and color based on the winstreak value
   const brightness = Math.min(props.winstreak / 10, 1);
   const color = `rgba(${255 - brightness * 55}, ${
@@ -17,6 +20,7 @@ export function WinstreakAnimation(props: { winstreak: number }) {
         overflow: "hidden", // Hide overflow
         filter: `brightness(${brightness + 0.5})`, // Brightness adjustment
       }}
+      data-intro={props.data}
     >
       <svg className={styles.fireSvg} viewBox="0 0 64 64">
         <defs>

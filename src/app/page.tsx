@@ -14,9 +14,14 @@ import {
   HomePageHeaderMainText,
   HomePageHeadList,
   HomePageMain,
+  HomePagePlayButton,
 } from "./components/main/HomePage";
 import { signOut } from "next-auth/react";
 
+/**
+ * TODO: put the lives on the top right corner, and the ws in format: "streak: <ws>"
+ * make the pictures bigger
+ */
 export default function Home() {
   return (
     <main>
@@ -30,6 +35,7 @@ export default function Home() {
             </HomePageHeaderBodyText>
             <HomePageHeaderBodyArrow />
           </HomePageHeadList>
+          <HomePagePlayButton href={"/game"}>Play!</HomePagePlayButton>
         </HomePageHead>
         <HomePageBody>
           <HomePageBox>

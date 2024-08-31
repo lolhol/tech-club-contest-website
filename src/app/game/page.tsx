@@ -24,6 +24,7 @@ import { WinstreakAnimation } from "../components/winstreak/WinstreakAnimation";
 import { HeartAnimation } from "../components/hearts/HeartAnimation";
 import { updateServerWithClientData } from "../api/database/user/update-server/action";
 import { getGameDat } from "../api/database/user/get_game_dat/action";
+import introJs from "intro.js";
 
 export default function Game() {
   //const { data: session, status } = useSession(undefined);
@@ -44,6 +45,42 @@ export default function Game() {
 
     handleResize();
     window.addEventListener("resize", handleResize);
+
+    const intro = introJs();
+    intro.setOptions({
+      steps: [
+        {
+          element: '[data-intro="TopText"]',
+          intro: "Hello and welcome to the contest game!",
+        },
+        {
+          element: '[data-intro="Images"]',
+          intro:
+            "To score a point you need to click on the image that you think looks better.",
+        },
+        {
+          element: '[data-intro="Winstreak"]',
+          intro:
+            "In order to get the top position on the leaderboard you need to score the most points in a row (get _ images correctly in a row). The score restes once you fail once.",
+        },
+        {
+          element: '[data-intro="Hearts"]',
+          intro:
+            "These are your hearts! Every time the winstreak resets (when you miss a point) you lose a heart. When you loose all three, YOUR OUT!",
+        },
+        {
+          element: '[data-intro="Main"]',
+          intro:
+            "To check out the leaderboard, click on the sidebar and select the trophy. The top prize is <SOMETHING>.",
+        },
+      ],
+      showStepNumbers: true,
+      exitOnOverlayClick: false,
+      showBullets: false,
+      showButtons: true,
+    });
+    intro.start();
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -106,13 +143,15 @@ export default function Game() {
   }, [scored]);
 
   return (
-    <main>
+    <main data-intro="Main">
       <GameLayout>
         <GameHead>
-          <GameHeader>Select The Better Looking Image</GameHeader>
+          <GameHeader data="TopText">
+            Select The Better Looking Image
+          </GameHeader>
         </GameHead>
         <GameImageList>
-          <GameImageAbsoluteList single={scored}>
+          <GameImageAbsoluteList single={scored} data="Images">
             <GameImage
               single={scored}
               right={false}
@@ -179,24 +218,23 @@ export default function Game() {
             </GameImage>
           </GameImageAbsoluteList>
         </GameImageList>
-        {scored && (
-          <GameButtonList>
-            <GameButton
-              locked={false}
-              onClick={function (): void {
-                setImageData(undefined);
-                setScored(false);
-                setScoredImageNumber(0);
-              }}
-            >
-              Next Image
-            </GameButton>
-          </GameButtonList>
-        )}
+        <GameButtonList>
+          <GameButton
+            locked={false}
+            hidden={!scored}
+            onClick={function (): void {
+              setImageData(undefined);
+              setScored(false);
+              setScoredImageNumber(0);
+            }}
+          >
+            Next Image
+          </GameButton>
+        </GameButtonList>
 
-        <div className="absolute bottom-2 flex items-center h-fit">
-          <WinstreakAnimation winstreak={currentWS}></WinstreakAnimation>
-          <HeartAnimation score={currentHearts}></HeartAnimation>
+        <div className="bottom-2 flex items-center h-fit w-full justify-center">
+          <WinstreakAnimation winstreak={currentWS} data="Winstreak" />
+          <HeartAnimation score={currentHearts} data="Hearts"></HeartAnimation>
         </div>
       </GameLayout>
     </main>

@@ -1,5 +1,6 @@
 import { HiOutlineArrowDown } from "react-icons/hi";
 import css from "./HomePage.module.css";
+import Link from "next/link";
 
 export function HomePageMain(props: { children: React.ReactNode }) {
   return (
@@ -78,9 +79,23 @@ export function HomePageBoxTextGroup(props: { children: React.ReactNode }) {
 }
 
 export function HomePageBoxHeader(props: { children: React.ReactNode }) {
-  return <div className="text-lg font-semibold">{props.children}</div>;
+  return <div className="text-xl font-semibold">{props.children}</div>;
 }
 
 export function HomePageBoxBody(props: { children: React.ReactNode }) {
-  return <div className="text-sm font-thin">{props.children}</div>;
+  return <div className="text-md font-thin">{props.children}</div>;
+}
+
+export function HomePagePlayButton(props: {
+  children: React.ReactNode;
+  href: string;
+}) {
+  return (
+    <Link
+      className="w-36 h-10 bg-slate-600 rounded-sm flex items-center justify-center mt-10"
+      href={props.href}
+    >
+      {props.children}
+    </Link>
+  );
 }

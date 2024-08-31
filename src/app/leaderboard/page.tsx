@@ -9,8 +9,8 @@ import { getLeaderboard } from "../api/database/user/leaderboard/action";
 
 export default function Home() {
   const [leaderboardData, setLeaderboardData] = React.useState<Person[]>([
-    { name: "Loading...", score: 0 },
-    { name: "Loading...", score: 0 },
+    { name: "Test", score: 0 },
+    { name: "Test1", score: 0 },
   ]);
 
   function handleRefresh() {

@@ -5,7 +5,7 @@ import { MdCheckCircle } from "react-icons/md";
 
 export function GameLayout(props: { children: React.ReactNode }) {
   return (
-    <div className="w-full h-full lg:pt-4 pt-24 flex flex-col items-center gap-6 sm:gap-8">
+    <div className="w-full h-full lg:pt-16 pt-16 flex flex-col items-center gap-10 sm:gap-8">
       {props.children}
     </div>
   );
@@ -19,8 +19,15 @@ export function GameHead(props: { children: React.ReactNode }) {
   );
 }
 
-export function GameHeader(props: { children: React.ReactNode }) {
-  return <div className="text-3xl font-bold sm:text-5xl">{props.children}</div>;
+export function GameHeader(props: {
+  children: React.ReactNode;
+  data?: string;
+}) {
+  return (
+    <div className="text-3xl font-bold sm:text-5xl" data-intro={props.data}>
+      {props.children}
+    </div>
+  );
 }
 
 export function Gamebody(props: { children: React.ReactNode }) {
@@ -40,6 +47,7 @@ export function GameImageList(props: { children: React.ReactNode }) {
 export function GameImageAbsoluteList(props: {
   children: React.ReactNode;
   single: boolean;
+  data?: string;
 }) {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -55,9 +63,10 @@ export function GameImageAbsoluteList(props: {
 
   return (
     <div
-      className={`w-full h-full flex${!props.single ? " gap-4 sm:gap-6" : ""} ${
-        isSmallScreen ? "flex-col" : ""
-      }`}
+      className={`transition-all duration-500 w-full h-full flex${
+        !props.single ? " gap-4 sm:gap-6" : ""
+      } ${isSmallScreen ? "flex-col" : ""}`}
+      data-intro={props.data}
     >
       {props.children}
     </div>
@@ -114,14 +123,20 @@ export function GameButton(props: {
   children: React.ReactNode;
   onClick: () => void;
   locked?: boolean;
+  hidden?: boolean;
 }) {
   return (
     <button
       className={
         "w-36 h-fit p-2 text-lg font-semibold bg-slate-800 rounded-md hover:bg-slate-700 transition-all duration-300 " +
-        (props.locked ? "opacity-60" : "")
+        (props.locked ? "opacity-60" : "") +
+        (props.hidden ? " opacity-0 cursor-default" : "")
       }
-      onClick={props.onClick}
+      onClick={() => {
+        if (!props.hidden) {
+          props.onClick();
+        }
+      }}
     >
       {props.children}
     </button>

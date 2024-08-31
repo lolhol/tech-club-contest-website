@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import styles from "./HeartAnimation.module.css";
 
-export function HeartAnimation(props: { score: number }) {
+export function HeartAnimation(props: { score: number; data?: string }) {
   return (
     <div
       className={`${styles.container} w-60 flex items-center justify-center overflow-hidden`}
+      data-intro={props.data}
     >
       {Array.from({ length: props.score }, (_, index) => {
         const visibility = index < props.score;

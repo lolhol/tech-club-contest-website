@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.introjs-tooltip {
+  color: black !important;
+}
