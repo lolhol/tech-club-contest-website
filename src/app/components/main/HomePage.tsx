@@ -92,7 +92,7 @@ export function HomePagePlayButton(props: {
 }) {
   return (
     <Link
-      className="w-36 h-10 bg-slate-600 rounded-sm flex items-center justify-center mt-10"
+      className="w-fit h-fit text-2xl py-2 px-10 bg-slate-700 rounded-lg flex items-center justify-center mt-10"
       href={props.href}
     >
       {props.children}

@@ -5,6 +5,7 @@ declare module "next-auth" {
     user: {
       id: number;
       name: string;
+      first: boolean;
     };
   }
 }

@@ -30,19 +30,11 @@ export async function getPair(
   userId: number | undefined
 ): Promise<Pair | null> {
   console.log("GET PAIR: " + userId);
-  /*if (userId) {
-    const db = getDatabase();
-    const user_data: User = db
-      .prepare("SELECT * FROM account_contest WHERE id = ?;")
-      .get(userId) as unknown as User;
-
-    if (!user_data) return null;
-
-    console.log(user_data + "!!!!");
-  }*/
 
   const folderName = possible[randomInt(possible.length)];
-  const difficulty = possibleDifficulty["0"]; //user_data.difficulty];
+  const a = [0, 1, 2];
+  const random = randomInt(a.length);
+  const difficulty = possibleDifficulty[a[random]]; //user_data.difficulty];
 
   const randomImgOneNumber = 0;
   let randomImgTwoNumber = randomInt(difficulty.length);

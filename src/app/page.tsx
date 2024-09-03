@@ -37,7 +37,14 @@ export default function Home() {
           </HomePageHeadList>
           <HomePagePlayButton href={"/game"}>Play!</HomePagePlayButton>
         </HomePageHead>
-        <HomePageBody>
+      </HomePageMain>
+    </main>
+  );
+}
+
+/*
+
+       <HomePageBody>
           <HomePageBox>
             <HomePageBoxTextGroup>
               <HomePageBoxHeader>
@@ -64,8 +71,4 @@ export default function Home() {
           onClick={() => signOut({ callbackUrl: "/leaderboard" })}
         >
           Sign Out
-        </button>
-      </HomePageMain>
-    </main>
-  );
-}
+        </button>*/

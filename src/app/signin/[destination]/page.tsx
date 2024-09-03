@@ -14,19 +14,23 @@ import {
   SignInMargin,
   SignInTypeGroup,
   TextOption,
-} from "../components/SignIn";
+} from "../../components/SignIn";
 import Image from "next/image";
 
-export default function SignInPage() {
+export default function SignInPage({
+  params,
+}: {
+  params: { destination: string };
+}) {
   async function handleGoogleSignIn() {
     await signIn("google", {
-      callbackUrl: "/game",
+      callbackUrl: "/" + params.destination,
     });
   }
 
   async function handleDiscordSignIn() {
     await signIn("discord", {
-      callbackUrl: "/game",
+      callbackUrl: "/" + params.destination,
     });
   }
 

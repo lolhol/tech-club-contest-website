@@ -8,10 +8,7 @@ import React, { useEffect } from "react";
 import { getLeaderboard } from "../api/database/user/leaderboard/action";
 
 export default function Home() {
-  const [leaderboardData, setLeaderboardData] = React.useState<Person[]>([
-    { name: "Test", score: 0 },
-    { name: "Test1", score: 0 },
-  ]);
+  const [leaderboardData, setLeaderboardData] = React.useState<Person[]>([]);
 
   function handleRefresh() {
     getLeaderboard().then((data) => {
@@ -24,9 +21,9 @@ export default function Home() {
     });
   }
 
-  /*useEffect(() => {
+  useEffect(() => {
     handleRefresh();
-  }, []);*/
+  }, []);
 
   return (
     <main className="h-screen w-screen">

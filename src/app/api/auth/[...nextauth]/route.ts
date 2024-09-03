@@ -83,9 +83,9 @@ const authOptions: AuthOptions = {
 
     async session({ session, token, user }) {
       console.log(JSON.stringify(token) + " <- token session");
-      const res: { id: number; name: string } = (
-        await getDatabase()<{ id: number; name: string }[]>`
-        SELECT id, name FROM account_contest WHERE id = ${token.id};
+      const res: { id: number; name: string; first: boolean } = (
+        await getDatabase()<{ id: number; name: string; first: boolean }[]>`
+        SELECT id, name, first FROM account_contest WHERE id = ${token.id};
       `
       )[0];
 
