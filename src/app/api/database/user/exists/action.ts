@@ -4,33 +4,33 @@ import { getDatabase } from "@/internal/core";
 
 export async function doesUserExist(
   email: string,
-  password: string | undefined,
-  name: string | undefined
-) {
+  password?: string,
+  name?: string
+): Promise<boolean> {
   const db = getDatabase();
-  let res: { id: number } | undefined;
+  let res: { id: number }[] | undefined;
 
-  if (!password) {
-    res = db
-      .prepare("SELECT id FROM account WHERE email = ? AND name = ?;")
-      .get(email, name) as unknown as { id: number } | undefined;
+  if (!password && !name) {
+    // Only email provided
+    res = await db<{ id: number }[]>`
+      SELECT id FROM account WHERE email = ${email};
+    `;
+  } else if (!password) {
+    // Email and name provided
+    res = await db<{ id: number }[]>`
+      SELECT id FROM account WHERE email = ${email} AND name = ${name ?? ""};
+    `;
   } else if (!name) {
-    res = db
-      .prepare("SELECT id FROM account WHERE email = ? AND password = ?;")
-      .get(email, password) as unknown as { id: number } | undefined;
-  } else if (!name && !password) {
-    res = db
-      .prepare("SELECT id FROM account WHERE email = ?;")
-      .get(email) as unknown as { id: number } | undefined;
+    // Email and password provided
+    res = await db<{ id: number }[]>`
+      SELECT id FROM account WHERE email = ${email} AND password = ${password};
+    `;
   } else {
-    res = db
-      .prepare(
-        "SELECT id FROM account WHERE email = ? AND name = ? AND password = ?;"
-      )
-      .get(email, name, password) as unknown as { id: number } | undefined;
+    // Email, name, and password provided
+    res = await db<{ id: number }[]>`
+      SELECT id FROM account WHERE email = ${email} AND name = ${name} AND password = ${password};
+    `;
   }
 
-  console.log(JSON.stringify(res) + "??????" + (res !== undefined && res.id));
-
-  return res !== undefined && res.id;
+  return res && res.length > 0 ? true : false;
 }

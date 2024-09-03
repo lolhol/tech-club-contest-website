@@ -1,29 +1,37 @@
 "use server";
 
+import postgres from "postgres";
 import { getDatabase } from "@/internal/core";
 
 export async function createUser(name: string, email: string) {
   const db = getDatabase();
 
-  const existingUser: { id: number } | undefined = db
-    .prepare("SELECT id FROM deleted_account WHERE name = ? AND email = ?;")
-    .get(name, email) as unknown as { id: number } | undefined;
+  const existingUser = await db<{ id: number }[]>`
+    SELECT id FROM deleted_account WHERE name = ${name} AND email = ${email};
+  `;
 
-  if (existingUser) {
-    db.prepare(
-      `INSERT INTO account (name, email, lives_left, difficulty)
-       SELECT name, email, lives_left, difficulty 
-       FROM deleted_account 
-       WHERE id = ?;`
-    ).run(existingUser.id);
+  if (existingUser.length > 0) {
+    const userId = existingUser[0].id;
 
-    db.prepare("DELETE FROM deleted_account WHERE id = ?;").run(
-      existingUser.id
-    );
+    await db.begin(async (sql) => {
+      // Move user back to the account table
+      await sql`
+        INSERT INTO account (name, email, lives_left, difficulty)
+        SELECT name, email, lives_left, difficulty 
+        FROM deleted_account 
+        WHERE id = ${userId};
+      `;
+
+      // Delete user from the deleted_account table
+      await sql`
+        DELETE FROM deleted_account WHERE id = ${userId};
+      `;
+    });
   } else {
-    db.prepare(
-      "INSERT OR IGNORE INTO account (name, email) VALUES (?, ?);"
-    ).run(name, email);
+    await db`
+      INSERT INTO account (name, email) VALUES (${name}, ${email})
+      ON CONFLICT DO NOTHING;
+    `;
   }
 }
 

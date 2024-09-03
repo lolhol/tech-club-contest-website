@@ -1,7 +1,7 @@
-import Database from "better-sqlite3";
+import postgres from "postgres";
 
-let DATABASE = new Database("./database.db");
+const sql = postgres(process.env.POSTGRESS_URL!);
 
 export function getDatabase() {
-  return DATABASE;
+  return sql;
 }

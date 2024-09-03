@@ -16,20 +16,16 @@ export async function updateServerWithClientData(
 ) {
   const db = getDatabase();
 
-  const highscore = db
-    .prepare("SELECT best_score FROM account WHERE id = ?;")
-    .get(id) as unknown as { best_score: number };
+  const highscore = await db<
+    {
+      best_score: number;
+    }[]
+  >`SELECT best_score FROM account WHERE id = ${id};`;
+  //.get(id) as unknown as { best_score: number };
 
-  if (new_score > highscore.best_score) {
-    db.prepare("UPDATE account SET best_score = ? WHERE id = ?;").run(
-      new_score,
-      id
-    );
+  if (new_score > highscore[0].best_score) {
+    await db`UPDATE account SET best_score = ${new_score} WHERE id = ${id};`;
   }
 
-  db.prepare("UPDATE account SET score = ?, lives_left = ? WHERE id = ?;").run(
-    new_score,
-    new_lives,
-    id
-  );
+  await db`UPDATE account SET score = ${new_score}, lives_left = ${new_lives} WHERE id = ${id};`;
 }
