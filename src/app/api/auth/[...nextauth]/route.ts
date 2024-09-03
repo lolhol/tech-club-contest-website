@@ -64,9 +64,13 @@ const authOptions: AuthOptions = {
         const db = getDatabase();
 
         // Corrected query with proper parameter usage
-        const res = db
-          .prepare("SELECT id FROM account WHERE email = ? AND name = ?;")
-          .get(user.email, user.name) as { id: number } | undefined;
+        const res = (
+          await db<{ id: number }[]>`
+            SELECT id FROM account_contest WHERE email = ${
+              user.email ?? ""
+            } AND name = ${user.name ?? ""};
+          `
+        )[0];
 
         if (res) {
           console.log(res.id + " <- jwt");
@@ -79,9 +83,11 @@ const authOptions: AuthOptions = {
 
     async session({ session, token, user }) {
       console.log(JSON.stringify(token) + " <- token session");
-      const res: { id: number; name: string } = getDatabase()
-        .prepare("SELECT id, name FROM account WHERE id = ?;")
-        .get(token.id) as unknown as { id: number; name: string };
+      const res: { id: number; name: string } = (
+        await getDatabase()<{ id: number; name: string }[]>`
+        SELECT id, name FROM account_contest WHERE id = ${token.id};
+      `
+      )[0];
 
       console.log(JSON.stringify(res) + " <- session");
 

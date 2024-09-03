@@ -14,9 +14,9 @@ export async function createUser(name: string, email: string) {
     const userId = existingUser[0].id;
 
     await db.begin(async (sql) => {
-      // Move user back to the account table
+      // Move user back to the account_contest table
       await sql`
-        INSERT INTO account (name, email, lives_left, difficulty)
+        INSERT INTO account_contest (name, email, lives_left, difficulty)
         SELECT name, email, lives_left, difficulty 
         FROM deleted_account 
         WHERE id = ${userId};
@@ -29,14 +29,14 @@ export async function createUser(name: string, email: string) {
     });
   } else {
     await db`
-      INSERT INTO account (name, email) VALUES (${name}, ${email})
+      INSERT INTO account_contest (name, email) VALUES (${name}, ${email})
       ON CONFLICT DO NOTHING;
     `;
   }
 }
 
 /*
-CREATE TABLE IF NOT EXISTS account (
+CREATE TABLE IF NOT EXISTS account_contest (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         email TEXT NOT NULL,

@@ -13,22 +13,24 @@ export async function doesUserExist(
   if (!password && !name) {
     // Only email provided
     res = await db<{ id: number }[]>`
-      SELECT id FROM account WHERE email = ${email};
+      SELECT id FROM account_contest WHERE email = ${email};
     `;
   } else if (!password) {
     // Email and name provided
     res = await db<{ id: number }[]>`
-      SELECT id FROM account WHERE email = ${email} AND name = ${name ?? ""};
+      SELECT id FROM account_contest WHERE email = ${email} AND name = ${
+      name ?? ""
+    };
     `;
   } else if (!name) {
     // Email and password provided
     res = await db<{ id: number }[]>`
-      SELECT id FROM account WHERE email = ${email} AND password = ${password};
+      SELECT id FROM account_contest WHERE email = ${email} AND password = ${password};
     `;
   } else {
     // Email, name, and password provided
     res = await db<{ id: number }[]>`
-      SELECT id FROM account WHERE email = ${email} AND name = ${name} AND password = ${password};
+      SELECT id FROM account_contest WHERE email = ${email} AND name = ${name} AND password = ${password};
     `;
   }
 

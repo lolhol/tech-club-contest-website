@@ -10,13 +10,13 @@ export async function queueUserForDeletion(id: number) {
     await sql`
       INSERT INTO deleted_account (name, email, lives_left, difficulty)
       SELECT name, email, lives_left, difficulty 
-      FROM account 
+      FROM account_contest 
       WHERE id = ${id};
     `;
 
-    // Delete the user from the account table
+    // Delete the user from the account_contest table
     await sql`
-      DELETE FROM account WHERE id = ${id};
+      DELETE FROM account_contest WHERE id = ${id};
     `;
   });
 }

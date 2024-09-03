@@ -6,7 +6,7 @@ export async function getGameDat(id: number) {
   const db = getDatabase();
   const gameDat = await db<
     { score: number; lives_left: number }[]
-  >`SELECT score, lives_left FROM account WHERE id = ${id};`;
+  >`SELECT score, lives_left FROM account_contest WHERE id = ${id};`;
   return gameDat[0];
 }
 
@@ -16,6 +16,6 @@ export async function getHighScore(id: number) {
     {
       best_score: number;
     }[]
-  >`SELECT best_score FROM account WHERE id = ${id};`;
+  >`SELECT best_score FROM account_contest WHERE id = ${id};`;
   return highscore[0];
 }

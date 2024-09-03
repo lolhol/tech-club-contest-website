@@ -33,7 +33,7 @@ export async function getPair(
   /*if (userId) {
     const db = getDatabase();
     const user_data: User = db
-      .prepare("SELECT * FROM account WHERE id = ?;")
+      .prepare("SELECT * FROM account_contest WHERE id = ?;")
       .get(userId) as unknown as User;
 
     if (!user_data) return null;

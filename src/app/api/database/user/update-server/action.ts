@@ -20,12 +20,12 @@ export async function updateServerWithClientData(
     {
       best_score: number;
     }[]
-  >`SELECT best_score FROM account WHERE id = ${id};`;
+  >`SELECT best_score FROM account_contest WHERE id = ${id};`;
   //.get(id) as unknown as { best_score: number };
 
   if (new_score > highscore[0].best_score) {
-    await db`UPDATE account SET best_score = ${new_score} WHERE id = ${id};`;
+    await db`UPDATE account_contest SET best_score = ${new_score} WHERE id = ${id};`;
   }
 
-  await db`UPDATE account SET score = ${new_score}, lives_left = ${new_lives} WHERE id = ${id};`;
+  await db`UPDATE account_contest SET score = ${new_score}, lives_left = ${new_lives} WHERE id = ${id};`;
 }
