@@ -143,7 +143,7 @@ export function SignInButton(props: {
   return (
     <button
       className={cx(
-        "w-full h-16 border-[3px] border-gray-300 bg-slate-200 rounded-xl font-sans text-2xl text-gray-700 cursor-pointer",
+        "w-full h-16 border-[3px] border-gray-300 hover:bg-slate-300 transition-all duration-300 bg-slate-200 rounded-xl font-sans text-2xl text-gray-700 cursor-pointer",
         props.className
       )}
       onClick={props.onClick}

@@ -64,7 +64,15 @@ export default function SignInPage({
                 </SignInButtonCard>
               </SignInButton>
             </OptionGroup>
-            <OptionGroup className="flex flex-col h-max">
+          </SignInTypeGroup>
+        </SignInMargin>
+      </SignIn>
+    </main>
+  );
+}
+
+/*
+<OptionGroup className="flex flex-col h-max">
               <SignInButtonDiscord
                 className=""
                 onClick={() => handleDiscordSignIn}
@@ -80,10 +88,4 @@ export default function SignInPage({
                   <a>Sign in with Discord</a>
                 </SignInButtonCard>
               </SignInButtonDiscord>
-            </OptionGroup>
-          </SignInTypeGroup>
-        </SignInMargin>
-      </SignIn>
-    </main>
-  );
-}
+            </OptionGroup>*/
