@@ -90,7 +90,7 @@ export default function Game() {
           {
             element: '[data-intro="Main"]',
             intro:
-              "To check out the leaderboard, click on the sidebar and select the trophy. The top prize is a 20$ Steam Gift Card!",
+              "To check out the leaderboard, click on the sidebar and select the trophy. The top prize is a 25$ Visa Gift Card!",
           },
         ],
         showStepNumbers: true,

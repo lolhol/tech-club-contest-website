@@ -20,49 +20,30 @@ interface User {
 }
 
 const possible = ["call", "chatting", "guitar", "invite", "msg"];
-const possibleDifficulty: Record<number, number[]> = {
-  0: [0, 1, 2, 3],
-  1: [4, 5, 6],
-  2: [7, 8, 9],
-};
 
 export async function getPair(
   userId: number | undefined
 ): Promise<Pair | null> {
-  console.log("GET PAIR: " + userId);
-
   const folderName = possible[randomInt(possible.length)];
-  const a = [0, 1, 2];
-  const random = randomInt(a.length);
-  const difficulty = possibleDifficulty[a[random]]; //user_data.difficulty];
 
-  const randomImgOneNumber = 0;
-  let randomImgTwoNumber = randomInt(difficulty.length);
-  while (randomImgOneNumber === randomImgTwoNumber) {
-    randomImgTwoNumber = randomInt(difficulty.length);
+  const imageOneNumber = 0;
+  let randomImgTwoNumber = randomInt(1, 10);
+
+  const correctIndex = randomInt(0, 2);
+
+  if (correctIndex == 1) {
+    return {
+      image1: `/media/${folderName}/${imageOneNumber}.png`,
+      image2: `/media/${folderName}/${randomImgTwoNumber}.png`,
+      hardness: 1,
+      correct: 1,
+    };
   }
 
-  // Randomly decide whether the correct image will be image1 or image2
-  const correctIndex = randomInt(0, 2); // Generates 1 or 2
-
-  console.log(
-    difficulty[randomImgOneNumber] +
-      " " +
-      difficulty[randomImgTwoNumber] +
-      " " +
-      correctIndex
-  );
-
   return {
-    image1:
-      correctIndex == 1
-        ? `/media/${folderName}/${difficulty[0]}.png`
-        : `/media/${folderName}/${difficulty[randomImgTwoNumber]}.png`,
-    image2:
-      correctIndex == 0
-        ? `/media/${folderName}/${difficulty[0]}.png`
-        : `/media/${folderName}/${difficulty[randomImgTwoNumber]}.png`,
+    image1: `/media/${folderName}/${randomImgTwoNumber}.png`,
+    image2: `/media/${folderName}/${imageOneNumber}.png`,
     hardness: 1,
-    correct: correctIndex == 1 ? 1 : 2, // 1 if image1 is correct, 2 if image2 is correct
+    correct: 2,
   };
 }
