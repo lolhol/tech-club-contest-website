@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
@@ -10,6 +10,7 @@ import {
 import {
   GameOverBodyText,
   GameOverMainText,
+  SignOutButton,
 } from "../components/game-over/GameOver";
 
 export default function GameOverPage() {
@@ -36,6 +37,15 @@ export default function GameOverPage() {
     <main className="pt-10 flex flex-col justify-center gap-2">
       <GameOverMainText>Game Over!</GameOverMainText>
       <GameOverBodyText>Your score: {highScore}</GameOverBodyText>
+      <div className="w-full h-full flex items-center justify-center">
+        <SignOutButton
+          onClick={function (): void {
+            signOut({ callbackUrl: "/" });
+          }}
+        >
+          Sign Out
+        </SignOutButton>
+      </div>
     </main>
   );
 }
